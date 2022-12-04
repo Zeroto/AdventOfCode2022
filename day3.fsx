@@ -321,15 +321,11 @@ let part1 =
   |> Array.sum
 
 
-let groupBags =
+let part2 =
   input.Split('\n')
   |> Array.map (Set.ofSeq)
   |> Array.chunkBySize 3
-
-let part2 =
- groupBags
- |> Array.map (fun g -> 
-  Set.intersectMany [g.[0]; g.[1]; g.[2]]
- )
- |> Array.map (Set.toSeq >> Seq.head >> charToNumber)
- |> Array.sum
+  |> Array.map ((fun g -> 
+      Set.intersectMany [g.[0]; g.[1]; g.[2]]
+    ) >> Set.toSeq >> Seq.head >> charToNumber)
+  |> Array.sum
