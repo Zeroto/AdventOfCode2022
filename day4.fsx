@@ -1018,8 +1018,8 @@ let part2 =
   parsedInput
   |> Array.filter (fun ((x1, x2), (y1, y2)) -> 
     (x1 >= y1 && x1 <= y2)
-    || (x2 >= y1 && x2 <= y2)
+    // || (x2 >= y1 && x2 <= y2)
     || (y1 >= x1 && y1 <= x2)
-    || (y2 >= x1 && y2 <= x2)
+    // || (y2 >= x1 && y2 <= x2)
   )
   |> Array.length
